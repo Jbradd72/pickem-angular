@@ -6,8 +6,8 @@ const execSync = require('child_process').execSync;
 const PORT = 8888;
 
 express()
-  .use(express.static(path.join(__dirname, 'public')))
-  .get('/', (req,res)=>res.sendFile('src/index.html'))
+  .use(express.static(__dirname + '/dist/pickem-angular'))
+  .get('/', (req,res)=>res.sendFile(path.join(__dirname+'/dist/pickem-angular/index.html')))
   .get('/getSchedule', (req,res)=> {
     var week = req.query.week;
     if (req.query.week === undefined) week = 16;

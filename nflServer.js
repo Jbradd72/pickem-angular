@@ -7,9 +7,7 @@ const PORT = 8888;
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs')
-  .get('/', (req,res)=>res.render('pages/index'))
+  .get('/', (req,res)=>res.sendFile('src/index.html'))
   .get('/getSchedule', (req,res)=> {
     var week = req.query.week;
     if (req.query.week === undefined) week = 16;

@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const d3 = require('d3-dsv');
 const execSync = require('child_process').execSync;
-const PORT = 8888;
+const PORT = process.env.PORT || 5000;
 
 express()
   .use(express.static(__dirname + '/dist/pickem-angular'))
